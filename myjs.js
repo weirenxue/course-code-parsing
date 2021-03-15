@@ -3,6 +3,7 @@ $(function() {
         let s = "";
         let trs = [];
         let course = [];
+        let cursor
         course.push(parseCourseCode($('#classCode-1')[0].value));
         course.push(parseCourseCode($('#classCode-2')[0].value));
         for(let i = 0; i < defineCode.length; i++){
@@ -12,7 +13,7 @@ $(function() {
             let desc1 = getMeaning(defineCode[i].name, course[0]) || '?';
             let desc2 = getMeaning(defineCode[i].name, course[1]) || '?';
             
-            tr.append($(document.createElement('td')).text(defineCode[i].name + "(" + defineCode[i].len + ")"));
+            tr.append($(document.createElement('td')).text("(" + defineCode[i].range + ") " + defineCode[i].name));
             tr.append($(document.createElement('td')).text(code1 ? code1 + "  (" + desc1 + ")" : ''));
             tr.append($(document.createElement('td')).text(code2 ? code2 + "  (" + desc2 + ")" : ''));
 
